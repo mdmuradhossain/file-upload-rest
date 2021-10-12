@@ -55,6 +55,7 @@ public class FileServiceImpl implements FileService {
         try {
             return Files.walk(this.root, 1).filter(path -> !path.equals(this.root)).map(this.root::relativize);
         } catch (IOException e) {
+            e.printStackTrace();
             throw new RuntimeException("Files Not Loaded.." + e.getMessage());
         }
     }
