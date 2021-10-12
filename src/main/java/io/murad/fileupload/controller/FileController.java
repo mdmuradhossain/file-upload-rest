@@ -1,6 +1,7 @@
 package io.murad.fileupload.controller;
 
 import io.murad.fileupload.model.FileInfo;
+import io.murad.fileupload.repository.FileRepository;
 import io.murad.fileupload.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -22,6 +23,8 @@ public class FileController {
 
     @Autowired
     private FileService fileService;
+    @Autowired
+    private FileRepository fileRepository;
 
     @PostMapping("/upload")
     public ResponseEntity<?> uploadFiles(@RequestParam("files") MultipartFile[] files) {
