@@ -1,5 +1,6 @@
 package io.murad.fileupload.controller;
 
+import io.murad.fileupload.model.FileInfo;
 import io.murad.fileupload.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -46,7 +47,7 @@ public class FileController {
         }
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public ResponseEntity<List<FileInfo>> getAllFiles() {
 
         List<FileInfo> fileInfoList = fileService.loadAll().map(path -> {
